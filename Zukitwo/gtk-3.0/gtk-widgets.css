@@ -3601,13 +3601,17 @@ GtkIconView.cell:selected:focus {
 .cell:selected,
 .cell:selected:focus {
 	background-color: @theme_selected_bg_color;
+    background-image: -gtk-gradient (linear,
+                                     left top, left bottom,
+                                     from (shade(@theme_selected_bg_color, 1.0)),
+                                     to (shade(@theme_selected_bg_color, 1.1))); 
 	color: @theme_selected_fg_color;
 }
 
 .cell:selected:backdrop,
 .cell:selected:focus:backdrop {
 	background-color: shade(@theme_unfocused_bg_color, 0.94);
-	color: @theme_fg_color;
+	color: @theme_selected_fg_color;
 }
 
 row:selected,
