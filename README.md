@@ -4,14 +4,14 @@ zuki-themes
 Themes for GTK, gnome-shell and more.
 
 Requirements:
-- GTK 3.14
+- GTK 3.17+
 - Murrine GTK2 engine
 - gtk-engines/gtk2-engines (Debian based distros also need gtk2-pixbuf-engine.)
 
 Fedora/RedHat distros:
 yum install gtk-murrine-engine gtk2-engines
 
-Ubuntu/Mint/Debian distros:
+Ubuntu/Mint/Debian (not supported due to their old gtk versions) distros:
 sudo apt-get install gtk2-engines-murrine gtk2-engines-pixbuf
 
 ArchLinux:
