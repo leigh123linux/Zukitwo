@@ -17,8 +17,6 @@
 	-GtkTreeView-horizontal-separator: 4;
 	-GtkMenu-horizontal-padding: 0;
 	-GtkMenu-vertical-padding: 0;
-	-GtkWidget-link-color: @link_color;
-	-GtkWidget-visited-link-color: @link_color;
 	-GtkWidget-focus-padding: 2;
 	-GtkWidget-focus-line-width: 1;
 	-GtkWindow-resize-grip-width: 0;
