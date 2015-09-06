@@ -3590,6 +3590,29 @@ GtkIconView.cell:selected:focus {
 	color: @theme_fg_color;
 }
 
+/* ie. filechooser dialog */
+.view row,
+.view row:backdrop {
+ color: @theme_fg_color;
+}
+
+.view row:selected,
+.view row:selected:hover {
+    background-image: linear-gradient(to bottom,
+		shade (@theme_selected_bg_color, 1.0),
+		shade (@theme_selected_bg_color, 1.0));
+    color: @theme_selected_fg_color;
+}
+
+.view row:selected:backdrop,
+.view row:selected:backdrop:hover {
+    color: @theme_fg_color;
+}
+
+.view row:hover {
+	color: shade (@theme_selected_bg_color, 0.35);
+}
+
 .cell {
 	/*color: @theme_text_color;*/ /* Don't use, seems to change hover effect on combobox menuitems */
 	padding: 2px;
@@ -3636,6 +3659,10 @@ row:selected:focus:backdrop {
 	box-shadow: none;
 }
 
+row:hover {
+	background-color: shade (@theme_selected_bg_color, 1.55);
+}
+
 GtkTreeView row:nth-child(even),
 GtkTreeView row:nth-child(odd) {
 	background-color: shade (@theme_base_color, 1.0);
@@ -3664,7 +3691,7 @@ GtkTreeView row:nth-child(even):backdrop:hover {
 }
 
 .sidebar GtkTreeView row:hover {
-	background-color: shade (@theme_base_color, 0.96);
+	background-color: shade (@theme_bg_color, 0.95);
 }
 
 column-header.button,
@@ -3790,7 +3817,7 @@ GtkExpander:checked {
 }
 
 .list-row:hover {
-	background-color: shade (@content_view_bg, 0.95);
+	background-color: shade (@theme_selected_bg_color, 1.55);
 }
 
 .list-row:selected,
