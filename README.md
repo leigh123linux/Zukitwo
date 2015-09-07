@@ -1,7 +1,7 @@
-zuki-themes
+Zukitwo theme
 ===========
 
-Themes for GTK, gnome-shell and more.
+Theme for GTK2 , GTK3 and Metacity.
 
 Requirements:
 - GTK 3.17+
