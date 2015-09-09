@@ -2948,7 +2948,7 @@ GtkOverlay.osd {
 }
 
 .osd .button {
-	border-color: @osd_button_border;
+	border-color: shade (@theme_selected_bg_color, 0.3);
 }
 .osd .button:insensitive {
 	border-color: alpha(@osd_button_border,0.5);
@@ -2956,21 +2956,18 @@ GtkOverlay.osd {
 
 .osd .button:active,
 .osd .button:checked {
-	border-color: @osd_button_border_active;
+	border-color: shade (@theme_selected_bg_color, 0.5);
 }
 
 .osd.button,
 .osd .button {
 	padding: 4px;
-
 	background-image: linear-gradient(to bottom,
 		@osd_button_bg_a,
 		@osd_button_bg_b 68%,
 		@osd_button_bg_c
 		);
-
 	color: @osd_button_fg;
-
 	text-shadow: 0 -1px @osd_button_shadow;
 	icon-shadow: 0 -1px @osd_button_shadow;
 }
@@ -3066,6 +3063,28 @@ GtkOverlay.osd {
 		);
 }
 
+/* left/right button box */
+.osd.toolbar .horizontal.linked {
+    background-image: linear-gradient(to bottom,
+                                      @osd_button_bg_a,
+                                      @osd_button_bg_b 68%,
+                                      @osd_button_bg_c);
+    border-radius: 5px;
+}
+
+/* button in osd-toolbar */
+.osd .linked .button:active:first-child {
+    border-left-width: 1px;
+}
+
+.osd .linked .button:active:last-child {
+    border-right-width: 1px;
+}
+
+.osd.toolbar .flat.button.image-button {
+    box-shadow: none;
+}
+
 .osd GtkMenuButton.menu-button:active {
 	background-color: transparent;
 	border-color: @osd_button_border;
@@ -3079,9 +3098,10 @@ GtkOverlay.osd {
 .osd.toolbar {
 	color: @osd_fg;
 	text-shadow: 0 1px @osd_text_shadow;
-
 	padding: 10px;
-	border-style: none;
+	border-style: solid;
+	border-width: 1px;
+	border-color: shade (@theme_selected_bg_color, 0.5);
 	border-radius: 7px;
 	background-image: linear-gradient(to bottom,
 		@osd_toolbar_bg_a,
@@ -3089,7 +3109,6 @@ GtkOverlay.osd {
 		@osd_toolbar_bg_c
 		);
 	background-color: transparent;
-
 	-GtkToolbar-button-relief: normal;
 }
 
@@ -3120,7 +3139,6 @@ GtkOverlay.osd {
 	border-width: 1px;
 	border-radius: 5px;
 	border-style: solid;
-
 	box-shadow: none;
 }
 
@@ -3154,6 +3172,34 @@ GtkOverlay.osd {
 .osd .scale.trough.highlight:insensitive {
 	background-image: none;
 	background-color: transparent;
+}
+
+.osd .scale-popup.popover.background {
+    color: @osd_fg;
+    border-style: solid;
+    border-width: 1px;
+    border-color: shade (@theme_selected_bg_color, 0.5);
+    border-radius: 4px;
+    background-image: linear-gradient(to bottom,
+                                      @osd_toolbar_bg_a,
+                                      @osd_toolbar_bg_b 63%,
+                                      @osd_toolbar_bg_c);
+    background-color: transparent;
+}
+
+.osd .scale-popup.popover.background .button.flat.image-button {
+    background-image: linear-gradient(to bottom,
+                                      @osd_button_bg_a,
+                                      @osd_button_bg_b 68%,
+                                      @osd_button_bg_c);
+    border-radius: 5px;
+    border-width: 1px;
+    padding: 2px;
+}
+
+.osd .scale-popup.popover.background .button.flat.image-button:insensitive {
+    background-color: alpha (@osd_button_bg_insensitive, 0.5);
+    background-image: none;
 }
 
 .osd GtkProgressBar,
