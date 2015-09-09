@@ -1,43 +1,6 @@
 /*********************
  * NEMO File manager *
  *********************/
-/* for breadcrumbs path bar */
-
-.nemo-pathbar-button,
-NemoPathbarButton {
-	background-image: -gtk-gradient(linear, left top, left bottom,
-		color-stop (0, shade(alpha(@theme_bg_color, 0.8), 1.1)),
-		color-stop (.3, shade(alpha(@theme_bg_color, 0.8), 1.1)),
-		color-stop (.7, shade(alpha(@theme_bg_color, 0.8), 0.98)),
-		color-stop (1, shade(alpha(@theme_bg_color, 0.8), 0.90)));
-	border-color: #979797;
-	color: @theme_fg_color;
-	-NemoPathbarButton-border-radius: 3px;
-}
-
-NemoPathbarButton:active {
-	background-image: -gtk-gradient(linear, left top, left bottom,
-		color-stop (0, shade(alpha(@theme_bg_color, 0.8), .8)),
-		color-stop (.3, shade(alpha(@theme_bg_color, 0.8), .9)),
-		color-stop (1, shade(alpha(@theme_bg_color, 0.8), 1.0)));
-}
-
-NemoPathbarButton:hover {
-	background-image: -gtk-gradient(linear, left top, left bottom,
-		color-stop (0, shade(alpha(@theme_selected_bg_color, 0.8), 1.25)),
-		color-stop (.3, shade(alpha(@theme_selected_bg_color, 0.8), 1.25)),
-		color-stop (.7, shade(alpha(@theme_selected_bg_color, 0.8), 0.95)),
-		color-stop (1, shade(alpha(@theme_selected_bg_color, 0.8), 0.85)));
-}
-
-NemoPathbarButton:active:hover {
-	background-image: -gtk-gradient(linear, left top, left bottom,
-		color-stop (0, shade(alpha(@theme_selected_bg_color, 0.8), .80)),
-		color-stop (.3, shade(alpha(@theme_selected_bg_color, 0.8), .95)),
-		color-stop (1, shade(alpha(@theme_selected_bg_color, 0.8), 1.25)));
-}
-
-
 /* For Places Sidebar diskfull indicators */
 
 NemoPlacesTreeView {
@@ -134,8 +97,23 @@ NemoWindow .sidebar row:hover {
 }
 
 /* Toolbar */
-NemoWindow .toolbar .button {
-	border-image: none;
+
+NemoWindow .toolbar .button.image-button {
+    padding: 0 5px;
+}
+
+NemoWindow .toolbar GtkStatusbar {
+}
+
+/* the fix above for the statusbar buttons also affects the primary toolbar so we need to reset the
+    padding for those buttons */
+
+NemoWindow .primary-toolbar.toolbar .button.image-button {
+    padding: 0 7px;
+}
+
+NemoWindow .primary-toolbar.toolbar .entry {
+    padding: 3px;
 }
 
 /* Misc */
