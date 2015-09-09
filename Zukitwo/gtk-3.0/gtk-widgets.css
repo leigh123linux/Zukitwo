@@ -4379,6 +4379,49 @@ GtkModelButton.button:selected {
 	box-shadow: 0 0 0 1px shade(@wm_border,1.1), 0 2px 5px 1px @wm_shadow;
 }
 
+/************
+ * GtkStack *
+ ************/
+
+/* pages */
+GtkStack .linked.vertical GtkSpinButton.horizontal.entry.spinbutton,
+GtkStack .linked.vertical GtkSpinButton.horizontal.entry.spinbutton:hover,
+GtkStack .linked.vertical GtkSpinButton.horizontal.entry.spinbutton:focus,
+GtkStack .linked.vertical GtkSpinButton.horizontal.entry.spinbutton:active,
+GtkStack .linked.vertical GtkSpinButton.horizontal.entry.spinbutton:checked,
+GtkStack .linked.vertical GtkSpinButton.horizontal.entry.spinbutton:insensitive {
+    border-radius: 0px;
+    border-width: 0 1px 0 1px;
+    border-image-slice: 10 4 10 4;
+}
+
+/* to avoid jumping buttons */
+GtkStack .linked.vertical .entry,
+GtkStack .linked.vertical .entry:focus {
+    box-shadow: none;
+}
+
+GtkStack .linked.vertical GtkSpinButton.horizontal.entry.spinbutton .button {
+    box-shadow: inset 1px 0 alpha(@theme_selected_bg_color, 0.2);
+}
+
+/* address box */
+GtkStack .linked.vertical .entry,
+GtkStack .linked.vertical .entry:focus {
+    border-image-slice: 10 4 10 4;
+}
+
+GtkStack .linked.vertical .entry:first-child,
+GtkStack .linked.vertical .entry:focus:first-child {
+    border-image-slice: 3 4 10 4;
+}
+
+GtkStack .linked.vertical .entry:last-child,
+GtkStack .linked.vertical .entry:focus:last-child {
+    border-image-width: 0px 4px 3px 4px;
+    border-image-slice: 10 4 4 4;
+}
+
 /* Various hacks and shit */
 /* FIXME - BELOW: Some stuff that can probably be done better or in another way */
 
