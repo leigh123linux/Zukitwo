@@ -1746,8 +1746,7 @@ GtkCalendar.header .stack-switcher > .titlebutton.button {
 	padding: 0;
 	border-style: solid;
 	border-color: @borders;
-	border-top: 0px;
-
+	border-width: 0px;
 	background-color: shade (@theme_bg_color, 1.1);
 	-GtkNotebook-initial-gap: 0;
 	-GtkNotebook-arrow-spacing: 5;
@@ -1762,40 +1761,47 @@ GtkCalendar.header .stack-switcher > .titlebutton.button {
 	background-color: @theme_base_color;
 }
 
-.notebook.frame {
-	border-width: 1px;
+.notebook.frame.top {
+    border-width: 0px 1px 1px 1px;
+}
+
+.notebook.frame.bottom {
+    border-width: 1px 1px 0px 1px;
+}
+
+.notebook.frame.left {
+    border-width: 1px 1px 1px 0px;
+}
+
+.notebook.frame.right {
+    border-width: 1px 0px 1px 1px;
 }
 
 .notebook.header {
 	background-image: linear-gradient(to bottom,
 		shade(@theme_bg_color, 0.96),
 		shade(@theme_bg_color, 1.0));
-	border-width: 0px;
 	box-shadow: inset 0 1px 0 0 alpha(@borders, 0.4), inset 0 -1px 0 0 alpha(@borders, 1.0);
 }
 
-.notebook.header.frame.top {
-	border-top: 1px solid @borders;
-	border-left: 1px solid @borders;
-	border-right: 1px solid @borders;
+.notebook.header.top {
+    border-width: 1px 1px 0 1px;
+    border-radius: 4px 4px 0px 0px;
 }
 
-.notebook.header.frame.bottom {
-	border-bottom: 1px solid @borders;
-	border-left: 1px solid @borders;
-	border-right: 1px solid @borders;
+.notebook.header.bottom {
+    border-width: 0 1px 1px 1px;
+    border-radius: 0px 0px 4px 4px;
 }
 
-.notebook.header.frame.left {
-	border-top: 1px solid @borders;
-	border-bottom: 1px solid @borders;
-	border-left: 1px solid @borders;
+.notebook.header.left {
+    border-width: 0 1px 0 2px;
+    border-radius: 4px 0px 0px 4px;
 }
 
-.notebook.header.frame.right {
-	border-top: 1px solid @borders;
-	border-bottom: 1px solid @borders;
-	border-right: 1px solid @borders;
+.notebook.header.right {
+    border-width: 0 2px 0 1px;
+    border-radius: 0px 4px 4px 0px;
 }
 
 .notebook GtkViewport {
@@ -1829,7 +1835,7 @@ GtkCalendar.header .stack-switcher > .titlebutton.button {
 
 .notebook tab.top,
 .notebook tab.bottom {
-	padding: 8px 20px 6px;
+    padding: 6px 20px 4px;
 }
 
 .notebook tab.top:active,
@@ -1862,9 +1868,10 @@ GtkCalendar.header .stack-switcher > .titlebutton.button {
 	background-image: linear-gradient(to top,
 		shade(@theme_bg_color, 1.18),
 		shade(@theme_bg_color, 1.1));
-	border-radius: 0;
+	border-radius: 0 0 4px 4px;
 	border-style: solid;
 	border-width: 0px 1px 1px 1px;
+	border-color: @borders;
 	box-shadow: none;
 }
 
@@ -1888,22 +1895,45 @@ GtkCalendar.header .stack-switcher > .titlebutton.button {
 	padding: 5px 20px;
 }
 
-.notebook tab.left:hover,
-.notebook tab.left:active {
-	border-right-width: 2px;
+.notebook tab.left:active,
+.notebook tab.left:active:hover {
+    background-image: linear-gradient(to right,
+                                      shade(@theme_bg_color, 1.18),
+                                      shade(@theme_bg_color, 1.1));
+    border-radius: 4px 0px 0px 4px;
+    border-width: 1px 2px 1px 1px;
+    border-color: @borders;
+    border-right-color: @notebook_active_tab_border;
 }
 
-.notebook tab.left:active {
-	border-right-color: @notebook_active_tab_border;
+.notebook tab.left:hover {
+    background-image: linear-gradient(to right,
+                                      alpha(@theme_base_color, 0.0),
+                                      alpha(@theme_base_color, 0.3));
+    border-radius: 4px 0px 0px 4px;
+    border-width: 1px 0px 1px 1px;
+    border-style: solid;
+    border-color: @borders;
 }
 
-.notebook tab.right:hover,
-.notebook tab.right:active {
-	border-left-width: 2px;
+.notebook tab.right:active,
+.notebook tab.right:active:hover {
+    background-image: linear-gradient(to left,
+                                      shade(@theme_bg_color, 1.18),
+                                      shade(@theme_bg_color, 1.1));
+    border-radius:  0px 4px 4px 0px;
+    border-width: 1px 1px 1px 2px;
+    border-color: @borders;
+    border-left-color: @notebook_active_tab_border;
 }
 
-.notebook tab.right:active {
-	border-left-color: @notebook_active_tab_border;
+.notebook tab.right:hover {
+    background-image: linear-gradient(to left,
+                                      alpha(@theme_base_color, 0.0),
+                                      alpha(@theme_base_color, 0.3));
+    border-width: 1px 0px 1px 0px;
+    border-style: solid;
+    border-color: @borders;
 }
 
 .notebook tab.reorderable-page:hover {
