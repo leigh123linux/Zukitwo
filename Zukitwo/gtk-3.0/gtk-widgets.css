@@ -1065,6 +1065,13 @@ GtkComboBox.combobox-entry .button {
 	border-image: none; 
 }
 
+.button.image-button.circular-button {
+   border-image: none;
+   border-width: 1px;
+   border-style: solid;
+   border-color: @borders;
+}
+
 /* We may want a background for focused buttons, but in the meantime let's remove it too */
 .primary-toolbar .button,
 .primary-toolbar .button:insensitive,
