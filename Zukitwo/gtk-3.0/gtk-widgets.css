@@ -2891,6 +2891,19 @@ GtkFileChooserDialog GtkPlacesSidebar.sidebar.frame .frame .sidebar.list .list-r
     padding: 4px 12px 4px 0px;
 }
 
+/* workaround for broken first/last-child logic with linked buttons
+   in pathbar with gtk+-3.18 */
+.path-bar.linked .button.image-button,
+.path-bar.linked .button.image-button:hover:active,
+.path-bar.linked .button.image-button:checked:hover,
+.path-bar.linked .button.text-button {
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-image-width: 3px 3px 4px 3px;
+	border-radius: 3px;
+    padding: 4px;
+}
+
 .sidebar row:hover {
 	background-color: shade (@theme_bg_color, 0.95);
 }
